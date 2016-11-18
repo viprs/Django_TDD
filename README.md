@@ -26,7 +26,70 @@
 	django-admin.py startproject superlists
 
 这个命令会创建一个名为superlists的文件夹，并在其中创建一些文件和文件夹：
+（在`PowerShell`里运行 `tree /f`）
+
+	  .gitignore
+	  README.md
+	  requirements.txt
+	  
+	  superlists
+	    │  db.sqlite3
+	    │  function_tests.py
+	    │  manage.py
+	    └─superlists
+	        │  settings.py
+	        │  urls.py
+	        │  wsgi.py
+	        │  __init__.py
+	        │
+	        └─__pycache__
+	                settings.cpython-34.pyc
+	                urls.cpython-34.pyc
+	                wsgi.cpython-34.pyc
+	                __init__.cpython-34.pyc
 
 运行服务器：
 
 	python3 manage.py runserver
+
+创建第一个应用：
+
+	python3 manage.py startapp lists
+
+现在的目录结构是：
+
+
+	  .gitignore
+	  README.md
+	  requirements.txt
+	  
+	  superlists
+	    │  db.sqlite3
+	    │  function_tests.py
+	    │  manage.py
+	    │
+	    ├─lists
+	    │  │  admin.py
+	    │  │  models.py
+	    │  │  tests.py
+	    │  │  views.py
+	    │  │  __init__.py
+	    │  │
+	    │  └─migrations
+	    │          __init__.py
+	    │
+	    └─superlists
+	        │  settings.py
+	        │  urls.py
+	        │  wsgi.py
+	        │  __init__.py
+	        │
+	        └─__pycache__
+	                settings.cpython-34.pyc
+	                urls.cpython-34.pyc
+	                wsgi.cpython-34.pyc
+	                __init__.cpython-34.pyc
+
+功能测试：站在用户的角度从外部测试应用。（高层驱动开发）
+
+单元测试：站在程序员的角度从内部测试应用。（底层驱动开发）
