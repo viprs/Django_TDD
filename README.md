@@ -21,10 +21,12 @@
 
 ## 运行第一个项目 ##
 
+你可以使用`django-admin.py`或者`django-admin`新建一个工程：
+
 	django-admin.py startproject superlists
 
 这个命令会创建一个名为superlists的文件夹，并在其中创建一些文件和文件夹：
 
-
+运行服务器：
 
 	python3 manage.py runserver
