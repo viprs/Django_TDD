@@ -3,7 +3,7 @@
 __author__ = 'Samren'
 import unittest
 from selenium import webdriver
-from selenium.webdriver.common.keys import keys
+from selenium.webdriver.common.keys import Keys
 
 class DjangoTestCase(unittest.TestCase):
 
@@ -36,12 +36,13 @@ class DjangoTestCase(unittest.TestCase):
         inputbox.send_keys('Buy peacock feathers')
 
         #她按回车后，更新了
-        inputbox.send_keys(keys.ENTER)
+        inputbox.send_keys(Keys.ENTER)
 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(row.text == '1:Buy peacock feathers' for row in rows)
+            any(row.text == '1:Buy peacock feathers' for row in rows),
+            "new to-do item did not appear in table"
         )
 
 
