@@ -109,6 +109,33 @@
 	--noinput 标志是说“不输入任何东西”
 
 
+## 确保功能测试之间相互隔离 ##
+
+单元测试时，Django的测试运行程序会自动创建一个全新的测试数据库（和应用真正使用的数据库不同），运行每个测试之前都会清空数据库，等所有测试都运行完之后，在删除这个数据库。
+
+但是功能测试目前使用的是应用真正使用的数据库db.sqlite3。
+
+从Django 1.4开始，提供了一个新类 LiveServerTestCase，它可以代我们完成这一任务。这个类会自动创建一个测试数据库（跟单元测试一样），并启动一个开发服务器，让功能测试在其中运行。虽然这个功能有一定的局限性（稍后解决），不过在现阶段十分有用。
+
+
+	superlists
+	├─function_tests
+	├─lists
+	│  ├─migrations
+	│  │  └─__pycache__
+	│  ├─templates
+	│  └─__pycache__
+	└─superlists
+	    └─__pycache__
+
+运行功能测试：
+	
+	python3 manage.py test functional_tests
+
+运行单元测试：
+	
+	python3 manage.py test lists
+
 ## 疑问 ##
 
 - makemigration和migrate分别有什么区别？ 
