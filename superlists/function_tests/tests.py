@@ -67,7 +67,7 @@ class NewVistorTest(LiveServerTestCase):
         self.browser.quit()
         self.browser = webdriver.Firefox()
 
-        # 弗朗西斯访问首页
+        # 弗朗西斯 francis 访问首页
         # 不应该看到Alice的清单
         self.browser.get(self.live_server_url)
         page_text = self.browser.find_elements_by_tag_name('body').text
