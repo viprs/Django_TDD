@@ -49,7 +49,7 @@ class NewVistorTest(LiveServerTestCase):
 
         # 页面中还有一个文本框，可以输入其他的待办事项
         # 她输入了“Use peacock feathers to make a fly”
-        # 
+        inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Use peacock feathers to make a fly')
         #她按回车后，更新了
         inputbox.send_keys(Keys.ENTER)
@@ -70,7 +70,7 @@ class NewVistorTest(LiveServerTestCase):
         # 弗朗西斯 francis 访问首页
         # 不应该看到Alice的清单
         self.browser.get(self.live_server_url)
-        page_text = self.browser.find_elements_by_tag_name('body').text
+        page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertNotIn('make a fly', page_text)
 
