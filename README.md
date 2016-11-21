@@ -99,3 +99,19 @@
 
 	python3 manage.py makemigrations
 
+	生成测试数据库迁移
+
+
+## 使用迁移创建生产数据库 ##
+
+	python3 manage.py migrate [--noinput]
+
+	--noinput 标志是说“不输入任何东西”
+
+
+## 疑问 ##
+
+- makemigration和migrate分别有什么区别？ 
+
+
+
